@@ -1,0 +1,15 @@
+@import url('https://fonts.googleapis.com/css2?family=Teachers:ital,wght@0,400..800;1,400..800&display=swap');
+
+:root {
+    --primary-color: #2b2734;
+    --secondary-color: #F8E559;
+    --light-color: #f8f8f8;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: "Teachers", sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+}

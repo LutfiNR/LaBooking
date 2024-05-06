@@ -1,0 +1,26 @@
+:root{
+    --fc-button-text-color: #F8E559;
+    --fc-button-bg-color: #2b2734;
+    --fc-button-border-color: #2b2734;
+    --fc-button-hover-bg-color: #2b2734;
+    --fc-button-hover-border-color: #2b2734;
+    --fc-button-active-bg-color: #000000;
+    --fc-button-active-border-color: #000000;
+
+    --fc-today-bg-color: #f8e65931;
+
+    --fc-now-indicator-color: #2b2734;
+}
+
+main>*{
+    margin-top: 24px;
+}
+
+.fc .fc-button:disabled {
+    opacity: 0.80;
+}
+
+.fc .fc-button {
+    border-radius: 0;
+    font-weight: 500;
+}
