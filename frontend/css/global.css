@@ -1,15 +1,31 @@
-@import url('https://fonts.googleapis.com/css2?family=Teachers:ital,wght@0,400..800;1,400..800&display=swap');
+/*
+ * Import Montserrat font from Google Fonts.
+ * The font-weight range is from 100 to 900, both normal and italic.
+ */
+ @import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
 
-:root {
-    --primary-color: #2b2734;
-    --secondary-color: #F8E559;
-    --light-color: #f8f8f8;
-}
-
-* {
-    margin: 0;
-    padding: 0;
-    font-family: "Teachers", sans-serif;
-    font-optical-sizing: auto;
-    font-style: normal;
-}
+ /*
+  * Global CSS reset for all elements.
+  * Sets the font-family to Montserrat, sans-serif.
+  * Enables font-optical-sizing for better text rendering.
+  * Removes default padding and margin from all elements.
+  */
+ * {
+   font-family: "Montserrat", sans-serif;
+   font-optical-sizing: auto;
+   font-style: normal;
+   padding: 0;
+   margin: 0;
+ }
+ 
+ /*
+  * Define CSS variables for colors used throughout the project.
+  * --primary-color: Dark color for main elements.
+  * --secondary-color: Light color for highlights and accents.
+  * --light-color: Lightest color for backgrounds.
+  */
+ :root {
+     --primary-color: #0f0f10;
+     --secondary-color: #f8d859;
+     --light-color: #f8f8f8;
+ }

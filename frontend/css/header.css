@@ -1,0 +1,61 @@
+nav {
+    background-color: var(--primary-color);
+    padding: 12px 48px;
+    display: flex;
+    gap: 48px;
+    align-items: center;
+    justify-content: space-between;
+  }
+  
+  nav h2 {
+    flex-grow: 2;
+  }
+  
+  nav h2 a {
+    color: var(--secondary-color);
+    text-decoration: none;
+  }
+  
+  nav h2 span {
+    color: var(--light-color);
+  }
+  
+  nav .button {
+    background: transparent;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    cursor: pointer;
+  
+  }
+  
+  nav .button:hover{
+    transform: translateY(-2px);
+  }
+  
+  nav .button img {
+    width: 32px;
+  }
+  
+  nav .button span {
+    border-radius: 4px;
+    font-weight: 500;
+    color: var(--secondary-color);
+  }
+  
+  @media only screen and (max-width: 768px) {
+    nav {
+      padding: 12px;
+      gap: 12px;
+    }
+  
+    nav .button img {
+      display: initial;
+      width: 40px;
+    }
+  
+    nav .button span {
+      display: none;
+    }
+  }
+  
