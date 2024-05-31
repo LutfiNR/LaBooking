@@ -1,3 +1,6 @@
+const { UUID } = require("mongodb");
+const { client, connectDB } = require("../database/connection");
+
 /**
  * Handles the booking process.
  *

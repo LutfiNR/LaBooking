@@ -1,3 +1,8 @@
+require('dotenv').config()
+const jwt = require('jsonwebtoken');
+const secretKey = process.env.JWT_SECRET;
+const {client, connectDB } = require("../database/connection");
+
 /**
  * Function to handle user login.
  * @param {Object} req - The request object containing the user's login credentials.

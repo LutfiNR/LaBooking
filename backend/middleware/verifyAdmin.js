@@ -1,3 +1,5 @@
+const jwt = require('jsonwebtoken');
+const secretKey = process.env.JWT_SECRET;
 /**
  * Middleware function to verify JWT and check admin role.
  *
