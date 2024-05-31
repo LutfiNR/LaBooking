@@ -36,13 +36,13 @@ LaBooking adalah sebuah aplikasi web untuk manajemen penjadwalan penggunaan labo
 - Home Page (Index) --> Fransiska Heni
 ![Home Page 1](./UI/home%20page%201.png)
 ![Home Page 2](./UI/home%20page%202.png)
-![Home Page 3](./UI/home%20page%203.png)
+![Home Page 3](./UI/home%20page%20day%20view.png)
 
 - Booking Page (Form Booking) --> Fransiska Heni
 ![Booking Page](./UI/booking%20page.png)
 
 - Admin Page (Admin Dashboard) --> Hadi Rama Wijaya
-![Admin Page](./UI/admin%20page.pngpng)
+![Admin Page](./UI/admin%20page.png)
 
 #### Function Logic (JavaScript)
 - Login --> Pinky Eka
