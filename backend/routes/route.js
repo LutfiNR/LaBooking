@@ -7,10 +7,10 @@ const express = require('express')
 const { getSchedules } = require('../handlers/getSchedules')
 const { signUp } = require('../handlers/signUp')
 const { logIn } = require('../handlers/logIn')
-const authenticate = require('../midleware/authenticate')
+const authenticate = require('../middleware/authenticate')
 const { booking } = require('../handlers/booking')
 const { getBookingRequest } = require('../handlers/getBookingRequest')
-const verifyAdmin = require('../midleware/verifyAdmin')
+const verifyAdmin = require('../middleware/verifyAdmin')
 const { requestAction } = require('../handlers/requestAction')
 
 /**
