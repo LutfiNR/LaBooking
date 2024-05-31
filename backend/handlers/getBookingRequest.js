@@ -1,3 +1,4 @@
+const { client, connectDB } = require("../database/connection");
 /**
  * Retrieves all booking requests from the database.
  *

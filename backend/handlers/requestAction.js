@@ -1,3 +1,5 @@
+const { UUID } = require("mongodb");
+const { client, connectDB } = require("../database/connection");
 /**
  * Handles the approval or decline of booking requests.
  *

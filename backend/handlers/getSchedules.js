@@ -1,3 +1,4 @@
+const {client, connectDB } = require("../database/connection");
 /**
  * Retrieves and processes schedules from the database.
  *

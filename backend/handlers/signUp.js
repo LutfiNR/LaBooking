@@ -1,3 +1,5 @@
+const { UUID } = require("mongodb");
+const {client, connectDB } = require("../database/connection");
 /**
  * Handles user sign up process.
  *
