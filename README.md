@@ -54,6 +54,7 @@ LaBooking adalah sebuah aplikasi web untuk manajemen penjadwalan penggunaan labo
 
 
 ### Backend
+### API link: https://api-labooking.vercel.app/
 - Setup Database dan Koneksi --> Lutfi Nur Rohman
 - autentikasi dan verifikasi admin --> Lutfi Nur Rohman
 - get /schedules (data jadwal) --> Hadi Rama Wijaya
