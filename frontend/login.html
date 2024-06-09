@@ -15,16 +15,32 @@
     <script src="./js/login.js"></script>
 </head>
 <body>
-    <div class="container">
-        <div class="left"></div>
+    <div class="login-container">
+        <!-- This div tag is used to create a container for the login form -->
+        <div class="left">
+            <!-- This div tag is used to create a section for the left side of the login page -->
+            <img src="./assets/login-image.png" alt="login-image">
+            <!-- This img tag is used to embed an image in the HTML document -->
+        </div>
         <div class="right">
-            <div class="brand">LaBooking</div>
-            <div class="welcome">Selamat Datang!</div>
-            <form class="login-form">
-                <input type="text" placeholder="Username atau NPM" required>
-                <input type="password" placeholder="Password" required>
-                <input type="submit" value="Login">
-		        <button class="signup-btn">Sign Up</button>
+            <!-- This div tag is used to create a section for the right side of the login page -->
+            <h3>La<span>Booking</span></h3>
+            <!-- This h3 tag is used to create a level 3 heading -->
+            <h1>Selamat Datang!!</h1>
+            <!-- This h1 tag is used to create a level 1 heading -->
+            <form id="login-form">
+                <!-- This form tag is used to create an HTML form for user input -->
+                <label for="username">Username</label>
+                <!-- This label tag is used to create a label for an input element -->
+                <input type="text" id="username" name="username" placeholder="Username atau NPM" required>
+                <!-- This input tag is used to create an input field for text -->
+                <label for="password">Password</label>
+                <!-- This label tag is used to create a label for an input element -->
+                <input type="password" id="password" name="password" placeholder="Password" required>
+                <!-- This input tag is used to create an input field for password -->
+                <button type="submit">Login</button>
+                <!-- This button tag is used to create a clickable button -->
+                <a href="./signup.html">Sign Up</a>
             </form>
         </div>
     </div>
