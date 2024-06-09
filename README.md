@@ -2,6 +2,7 @@
 
 LaBooking adalah sebuah aplikasi web untuk manajemen penjadwalan penggunaan laboratorium komputer bagi Program Studi Pendidikan Teknologi Informasi.
 
+## Link : https://labooking.vercel.app/
 
 ## Teknologi yang Digunakan
 
