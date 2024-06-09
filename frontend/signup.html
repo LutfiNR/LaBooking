@@ -12,16 +12,41 @@
     <script src="./js/signup.js"></script>
 </head>
 <body>
-    <div class="container">
-        <div class="left"></div>
+    <!-- The signup-container div is used to create a container for the signup form -->
+    <div class="signup-container">
+        <!-- The left div is used to create a section for the left side of the signup page -->
+        <div class="left">
+            <!-- The img tag is used to embed an image in the HTML document -->
+            <img src="./assets/login-image.png" alt="login-image">
+        </div>
+        <!-- The right div is used to create a section for the right side of the signup page -->
         <div class="right">
-            <div class="brand">LaBooking</div>
-            <form class="login-form">
-                <input type="text" placeholder="Username atau NPM" required>
-                <input type="password" placeholder="Password" required>
-                <input type="text" placeholder="Nama Lengkap" required>
-                <input type="text" placeholder="Angkatan" required>
-                <input type="submit" value="Sign Up">
-                <button class="signup-btn">Login</button>
+            <!-- The h3 tag is used to create a level 3 heading -->
+            <h3>La<span>Booking</span></h3>
+            <!-- The signup-form form is used to create an HTML form for user input -->
+            <form id="signup-form">
+                <!-- The label tag is used to create a label for an input element -->
+                <label for="username">Username</label>
+                <!-- The input tag is used to create an input field for text -->
+                <input type="text" id="username" name="username" placeholder="Username atau NPM" required>
+                <!-- The label tag is used to create a label for an input element -->
+                <label for="password">Password</label>
+                <!-- The input tag is used to create an input field for password -->
+                <input type="password" id="password" name="password" placeholder="Password" required>
+                <!-- The label tag is used to create a label for an input element -->
+                <label for="name">Nama</label>
+                <!-- The input tag is used to create an input field for text -->
+                <input type="text" id="name" name="name" placeholder="Nama Lengkap" required>
+                <!-- The label tag is used to create a label for an input element -->
+                <label for="angkatan">Angkatan</label>
+                <!-- The input tag is used to create an input field for text -->
+                <input type="text" id="angkatan" name="angkatan" placeholder="Angkatan" min="0" required>
+                <!-- The button tag is used to create a clickable button -->
+                <button type="submit">Sign Up</button>
+                <!-- The a tag is used to create a hyperlink -->
+                <a href="./login.html">Login</a>
+            </form>
+        </div>
+    </div>
 </body>
 </html>
