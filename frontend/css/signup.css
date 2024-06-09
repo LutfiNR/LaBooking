@@ -1,87 +1,139 @@
-body, html {
-    height: 100%;
-    margin: 0;
-    font-family: Arial, sans-serif;
-}
-
-.container {
+/*
+ * This is the main container for the login page.
+ * It uses flexbox to arrange its children horizontally.
+ * The background color is set to a variable --light-color.
+ * The height is set to 100vh (viewport height).
+ */
+ .signup-container {
     display: flex;
-    height: 100%;
+    background-color: var(--light-color);
+    height: 100vh;
 }
 
-.left {
-    flex: 1;
+/*
+ * This is the left side of the login container.
+ * It takes up 50% of the viewport width.
+ */
+.left{
+    width: 50vw;
 }
 
-.right {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    background-image: url('frontend/assets/login-image.png');
-    background-size: cover;
-    background-position: center;
-    background-color: #f7f7f7;
-    padding: 20px;
+/*
+ * This is the image inside the left side of the login container.
+ * It uses object-fit: cover to maintain aspect ratio and fill the container.
+ * The width and height are set to 50vw and 100vh respectively.
+ */
+.left img{
+    object-fit: cover;
+    width: 50vw;
+    height: 100vh;
 }
 
-.brand {
-    font-size: 1.5em;
-    color: #f7b500;
-    margin-bottom: 10px;
+/*
+ * This is the right side of the login container.
+ * It has a padding of 64px and a color set to a variable --primary-color.
+ */
+.right{
+    padding: 64px;
+    color: var(--primary-color);
 }
 
-.welcome {
-    font-size: 2em;
-    font-weight: bold;
-    margin-bottom: 20px;
+/*
+ * This is a span inside the h3 tag in the right side of the login container.
+ * It has a color set to a variable --secondary-color.
+ */
+.right h3 span{
+    color: var(--secondary-color);
 }
 
-.login-form {
-    width: 100%;
-    max-width: 300px;
+/*
+ * This is the main heading (h1) inside the right side of the login container.
+ * It has a margin-top of 48px, a font-size of 48px, a font-weight of 800,
+ * and a color set to a variable --primary-color.
+ */
+.right h1 {
+    margin-top: 48px;
+    font-size: 48px;
+    font-weight: 800;
+    color: var(--primary-color);
 }
 
-.login-form input[type="text"], .login-form input[type="password"] {
-    width: 100%;
+/*
+ * This is the form inside the right side of the login container.
+ * It has a margin-top of 48px.
+ */
+.right form{
+    margin-top: 32px;
+}
+
+/*
+ * This is a label inside the form.
+ * It has a font-weight of 500.
+ */
+form label{
+    font-weight: 500;
+}
+
+/*
+ * This is an input inside the form.
+ * It has a border of 1px solid a variable --primary-color,
+ * a padding of 10px, a width of 100%, a margin of 10px 0,
+ * and box-sizing set to border-box.
+ */
+form input{
+    border: 1px solid var(--primary-color);
     padding: 10px;
+    width: 100%;
     margin: 10px 0;
-    border: 1px solid #ccc;
-    border-radius: 5px;
+    box-sizing: border-box;
 }
 
-.login-form input[type="submit"] {
+/*
+ * This is a button inside the form.
+ * It has a width of 100%, a padding of 10px, a background-color set to a variable --primary-color,
+ * a color set to a variable --secondary-color, no border, a font-size of 16px, a font-weight of 500,
+ * a cursor set to pointer, and a margin-top of 48px.
+ */
+form button {
     width: 100%;
     padding: 10px;
-    background-color: #000;
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
     border: none;
-    border-radius: 5px;
-    color: white;
-    font-size: 1em;
+    font-size: 16px;
+    font-weight: 500;
     cursor: pointer;
+    margin-top: 24px;
 }
 
-.login-form input[type="submit"]:hover {
-    background-color: #333;
+/*
+ * This is a CSS rule for the button inside the login-container when hovered.
+ * It applies a transformation to move the button up by 2 pixels (transform: translateY(-2px)).
+ * It also adds a bottom border of 2 pixels solid color set to --secondary-color (border-bottom: 2px solid var(--secondary-color)).
+ * This creates a visual effect of the button being lifted and highlighted when hovered.
+ */
+ .right button:hover,.right a:hover {
+    transform: translateY(-2px);
 }
 
-.signup-btn {
+.right a{
+    text-decoration: none;
+    text-align: center;
+    display: inline-block;
+    box-sizing: border-box;
+    margin-top: 16px;
     width: 100%;
     padding: 10px;
-    background-color: #fff;
-    border: 1px solid #000;
-    border-radius: 5px;
-    color: #000;
-    font-size: 1em;
+    background-color: var(--light-color);
+    color: var(--primary-color);
+    border: 1px solid var(--primary-color);
+    font-size: 16px;
+    font-weight: 500;
     cursor: pointer;
-    margin-top: 10px;
 }
 
-.signup-btn:hover {
-    background-color: #f0f0f0;
-}
-
-.login-form input::placeholder {
-    color: #888;
-}
+@media only screen and (max-width: 768px) {
+    .left{
+      display: none;
+    }
+  } 
