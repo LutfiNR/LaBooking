@@ -1,45 +1,66 @@
-document.addEventListener('DOMContentLoaded', function () {
-    const form = document.querySelector('.login-form');
+/**
+ * Event listener for DOMContentLoaded event.
+ * This function initializes the signup form and handles form submission.
+ */
+document.addEventListener('DOMContentLoaded', () => {
+    /**
+     * Reference to the signup form element.
+     * @type {HTMLFormElement}
+     */
+    const formSignUp = document.getElementById('signup-form');
+    
+    /**
+     * Event listener for form submission.
+     * This function prevents the default form submission behavior,
+     * collects form data, sends it to the server, and handles the response.
+     * @param {Event} event - The submit event.
+     */
+    formSignUp.addEventListener('submit', async (event) => {
+        event.preventDefault();
 
-    form.addEventListener('submit', async function (event) {
-        event.preventDefault(); // Prevent the form from submitting the default way
+        /**
+         * FormData object containing the form data.
+         * @type {FormData}
+         */
+        const formData = new FormData(formSignUp);
 
-        const username = document.querySelector('input[placeholder="Username atau NPM"]').value;
-        const password = document.querySelector('input[placeholder="Password"]').value;
-        const namaLengkap = document.querySelector('input[placeholder="Nama Lengkap"]').value;
-        const angkatan = document.querySelector('input[placeholder="Angkatan"]').value;
-
+        /**
+         * Object representation of the form data.
+         * @type {Object}
+         */
+        const data = Object.fromEntries(formData);
+        
         try {
+            /**
+             * Fetch API response from the server.
+             * @type {Response}
+             */
             const response = await fetch('https://api-labooking.vercel.app/signup', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
                 },
-                body: JSON.stringify({ username, password, namaLengkap, angkatan })
+                body: JSON.stringify(data)
             });
-
+            
             if (!response.ok) {
-                throw new Error('Signup gagal');
+                throw new Error('Server Error');
             }
+    
+            /**
+             * Deconstructed response data.
+             * @type {Object}
+             */
+            const {message} = await response.json();
 
-            const data = await response.json();
-            const token = data.token;
-
-            // Store the JWT token in localStorage
-            localStorage.setItem('jwtToken', token);
-
-            // Redirect to another page or show a success message
-            window.location.href = 'index.html'; // Change this to your desired page
+            // Display success message and redirect to login page
+            alert(message);
+            window.location.href = "/login.html";
 
         } catch (error) {
-            console.error('Error:', error);
-            alert('Signup gagal. silahkan periksa kembali, dan coba lagi.');
+            // Display error message
+            alert('Failed to submit form. '+ error);
         }
     });
-
-    // Redirect to login page on clicking the login button
-    const loginButton = document.querySelector('.signup-btn');
-    loginButton.addEventListener('click', function () {
-        window.location.href = 'login.html';
-    });
+    
 });
