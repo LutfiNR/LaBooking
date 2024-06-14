@@ -28,7 +28,7 @@ document.addEventListener("DOMContentLoaded", function () {
         eventColor: "#f8e659d5",
         eventTextColor: '#1e1a26',
         eventBorderColor: '#f8e659d5',
-        events: 'http://localhost:5000/api/bookinglist',
+        events: 'https://api-labooking.vercel.app/schedules',
 
         nowIndicator: true,
         navLinks: true,
