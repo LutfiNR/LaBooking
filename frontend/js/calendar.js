@@ -1,21 +1,56 @@
-const setHeight = (screen.width < 768) ? 540 : 800;
 import { Calendar } from "@fullcalendar/core";
 import dayGridPlugin from "@fullcalendar/daygrid";
 import timeGridPlugin from "@fullcalendar/timegrid";
 
-document.addEventListener("DOMContentLoaded", function () {
+/**
+ * Set the height of the calendar based on the screen width.
+ * @returns {number} The height of the calendar.
+ */
+const setHeight = (screen.width < 768) ? 540 : 800;
+
+/**
+ * Fetch events from the API.
+ * @returns {Promise<Array>} The array of events.
+ */
+async function fetchEvents() {
+    try {
+        const response = await fetch('https://api-labooking.vercel.app/schedules');
+        if (!response.ok) {
+            throw new Error('Network response was not ok');
+        }
+        const events = await response.json();
+        return events;
+    } catch (error) {
+        console.error('Error fetching events:', error);
+        return [];
+    }
+}
+
+/**
+ * Initialize the FullCalendar and set its options.
+ */
+document.addEventListener("DOMContentLoaded", async function () {
     const calendarEl = document.getElementById("calendar");
+    const loading = document.getElementById("loading");
+    loading.style.display = "block";
+
+    // Fetch events from API
+    const events = await fetchEvents();
+
+    /**
+     * Create a new FullCalendar instance.
+     * @type {Calendar}
+     */
     const calendar = new Calendar(calendarEl, {
         plugins: [dayGridPlugin, timeGridPlugin],
 
-        stickyHeaderDates: true,
         buttonText: {
             today: "Today",
             month: "Month",
             day: "Day",
         },
 
-        // header footer for mobile
+        // Header and footer for mobile
         headerToolbar: {
             left: "title",
             right: "dayGridMonth,timeGridDay",
@@ -28,7 +63,7 @@ document.addEventListener("DOMContentLoaded", function () {
         eventColor: "#f8e659d5",
         eventTextColor: '#1e1a26',
         eventBorderColor: '#f8e659d5',
-        events: 'https://api-labooking.vercel.app/schedules',
+        events: events, // Set events fetched from API
 
         nowIndicator: true,
         navLinks: true,
@@ -40,7 +75,7 @@ document.addEventListener("DOMContentLoaded", function () {
         expandRows: true,
     });
 
-    // header footer for desktop
+    // Header and footer for desktop
     if (screen.width > 768) {
         calendar.setOption('headerToolbar', {
             left: "prev today",
@@ -50,6 +85,7 @@ document.addEventListener("DOMContentLoaded", function () {
         calendar.setOption('footerToolbar', false);
     }
 
+    loading.style.display = "none";
     calendar.setOption('height', setHeight);
     calendar.render();
 });
