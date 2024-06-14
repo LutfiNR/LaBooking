@@ -23,24 +23,30 @@
       </header>
     <main>
         <!-- Disini -->
-        <table id="booking-table">
-          <thead>
-              <tr>
-                  <th>No</th>
-                  <th>Nama Pemesan</th>
-                  <th>Kegiatan</th>
-                  <th>Waktu Mulai</th>
-                  <th>Waktu Selesai</th>
-                  <th>Nama Dosen</th>
-                  <th>Telepon</th>
-                  <th>Status</th>
-                  <th>Action</th>
-              </tr>
-          </thead>
-          <tbody>
-              <!-- Data bookings akan di-render di sini -->
-          </tbody>
-      </table>
+        <div class="container">
+          <!-- Table for booking requests -->
+          <table>
+              <!-- Table header -->
+              <thead>
+                  <tr>
+                      <!-- Table header cells -->
+                      <th>No</th>
+                      <th>Nama Pemesan</th>
+                      <th>Kegiatan</th>
+                      <th>Waktu Mulai</th>
+                      <th>Waktu Selesai</th>
+                      <th>Nama Dosen</th>
+                      <th>Telepon</th>
+                      <th>Status</th>
+                      <th>Action</th>
+                  </tr>
+              </thead>
+              <!-- Table body for dynamic booking requests -->
+              <tbody id="bookingTableBody">
+                  <!-- Booking requests will be dynamically inserted here -->
+              </tbody>
+          </table>
+      </div>
     </main>
 </body>
 </html>
