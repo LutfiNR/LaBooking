@@ -47,7 +47,12 @@ document.addEventListener("DOMContentLoaded", () => {
             window.location.href = "/login.html";
         });
         buttonLoginLogout.lastElementChild.textContent = "Login";
-        buttonLoginLogout.firstElementChild.src = "../assets/login.png"
+        buttonLoginLogout.firstElementChild.src = "./assets/login.png"
+        buttonLoginLogout.firstElementChild.setAttribute("alt", "login");
+    } else {
+        buttonLoginLogout.lastElementChild.textContent = "Logout";
+        buttonLoginLogout.firstElementChild.src = "./assets/logout.png";
+        buttonLoginLogout.firstElementChild.setAttribute("alt", "logout");
     }
 
     /**
@@ -60,13 +65,4 @@ document.addEventListener("DOMContentLoaded", () => {
         window.location.href = "/login.html";
     });
 
-    /**
-     * Changes the text content of the last child of buttonLoginLogout to "Logout".
-     */
-    buttonLoginLogout.lastElementChild.textContent = "Logout";
-
-    /**
-     * Changes the source of the first child of buttonLoginLogout to "../assets/logout.png".
-     */
-    buttonLoginLogout.firstElementChild.src = "../assets/logout.png"
 });
