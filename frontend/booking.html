@@ -18,7 +18,68 @@
   </head>
   <body>
     <main>
-     <!-- Disini -->
+      <!-- Heading of the webpage -->
+      <h1>Form Booking Lab. Komputer PTI</h1>
+
+      <!-- Note paragraph -->
+      <p class="form-note">
+        <b>Note!</b> : Permintaan penggunaan lab akan di check oleh admin
+        terlebih dahulu. Admin akan mengirimkan pesan konfirmasi melalui
+        WhatsApp
+      </p>
+      <!-- Booking form -->
+      <form id="form-booking">
+        <!-- Input field for telepon -->
+        <div>
+          <label for="phone">Telepon</label><br />
+          <input
+            type="tel"
+            id="phone"
+            name="phone"
+            pattern="[0-9]{10,12}"
+            placeholder="Format: 081234567890"
+            required
+          />
+        </div>
+        <!-- Input field for kegiatan -->
+        <div>
+          <label for="activity">Kegiatan</label><br />
+          <input
+            type="text"
+            id="activity"
+            name="activity"
+            placeholder="Format: Angkatan - Kelas - Nama Mata Kuliah/Nama Kegiatan"
+            required
+          />
+        </div>
+
+        <!-- Input field for start time -->
+        <div>
+          <label for="start">Waktu Mulai</label><br />
+          <input type="datetime-local" id="start" name="start" required />
+        </div>
+
+        <!-- Input field for end time -->
+        <div>
+          <label for="end">Waktu Selesai</label><br />
+          <input type="datetime-local" id="end" name="end" required />
+        </div>
+
+        <!-- Input field for dosen -->
+        <div>
+          <label for="dosen">Nama Dosen Pengampu</label><br />
+          <input type="text" id="dosen" name="dosen" required />
+        </div>
+
+        <!-- Submit button -->
+        <div>
+          <button id="button-submit" class="btn-submit" type="submit">Submit</button>
+        </div>
+      </form>
+      <!-- Back button -->
+      <div>
+        <button id="button-back" class="btn-back">Back</button>
+      </div>
     </main>
   </body>
 </html>
