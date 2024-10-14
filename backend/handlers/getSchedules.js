@@ -18,7 +18,7 @@ const getSchedules = async (req, res) => {
         // Process the schedules into a format suitable for the calendar component
         const dataResponse = schedules.map((schedule) => {
             return {
-                title: `${schedule.activity} - ${schedule.dosen}`,
+                title: `${schedule.activity}`,
                 start: schedule.start,
                 end: schedule.end,
             };
