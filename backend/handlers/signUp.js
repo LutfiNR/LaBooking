@@ -1,59 +1,57 @@
 const { UUID } = require("mongodb");
-const { client, connectDB } = require("../database/connection");
-
+const {client, connectDB } = require("../database/connection");
 /**
- * Handles user sign up process for multiple users.
+ * Handles user sign up process.
  *
  * @param {Object} req - The request object containing user data.
  * @param {Object} res - The response object to send back to the client.
  * @returns {void}
  */
-const signUpMultiple = async (req, res) => {
+const signUp = async (req, res) => {
     // Connect to the database
     await connectDB();
 
     // Check if request body is empty
-    if (!req.body || !Array.isArray(req.body) || req.body.length === 0) {
+    if (!req.body || Object.keys(req.body).length === 0) {
         return res.status(400).json({
             success: false,
             message: 'SignUp gagal. Data Form Kosong'
         });
     }
 
-    const users = req.body; // Array of user objects
+    // Destructure user data from request body
+    const { username, password, name, angkatan } = req.body;
 
     try {
-        const existingUsers = await client.db('LaBooking').collection('Users')
-            .find({ username: { $in: users.map(user => user.username) } })
-            .toArray();
+        // Check if username already exists in the database
+        const usernameExist = await client.db('LaBooking').collection('Users').findOne({ username });
 
-        if (existingUsers.length > 0) {
+        if (usernameExist) {
             return res.status(409).json({
                 success: false,
-                message: 'SignUp gagal. Beberapa username sudah ada',
-                existingUsernames: existingUsers.map(user => user.username)
+                message: 'SignUp gagal. Username sudah ada'
             });
         }
 
-        // Create new users
-        const newUsers = users.map(({ username, password, name, angkatan }) => ({
+        // Create a new user object with UUID and user data
+        const newUser = {
             userId: new UUID(),
             username,
             password,
             name,
             angkatan,
             role: "user"
-        }));
+        };
 
-        // Insert all new users into the database
-        const result = await client.db('LaBooking').collection('Users').insertMany(newUsers);
+        // Insert the new user into the database
+        const result = await client.db('LaBooking').collection('Users').insertOne(newUser);
 
-        // Check if the users were successfully inserted
-        if (result.insertedCount > 0) {
+        // Check if the user was successfully inserted
+        if (result.insertedId) {
             return res.status(201).json({
                 success: true,
                 message: 'SignUp Berhasil',
-                data: newUsers
+                data: newUser
             });
         } else {
             return res.status(500).json({
@@ -71,4 +69,4 @@ const signUpMultiple = async (req, res) => {
     }
 };
 
-module.exports = { signUpMultiple };
+module.exports = {signUp};
